@@ -9,3 +9,5 @@ Purtroppo con le mie capacità non sono riuscito a fare in modo che all'avvio si
 Comandi Slash, sono più aggiornati e puliti
 
 Pulizia del codice, è fatto abbastanza a caso 
+
+Clonazione sessione di Chrome
